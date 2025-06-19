@@ -5,7 +5,7 @@ pipeline {
     }
 
     stages {
-        stage('build') {
+        stage("build") {
             steps {
                 sh 'mvn clean deploy'
             }
@@ -14,7 +14,7 @@ pipeline {
            environment {
                scannerHome = tool 'Akhil-sonarqube-scanner'
            }
-        }
+        
            steps {
               withSonarQubeEnv('Akhil-sonarqube-server') {
                    sh "${scanner/Home}/bin/sonar-scanner"
@@ -22,5 +22,5 @@ pipeline {
            }
         }
     }
- }
+}
 
