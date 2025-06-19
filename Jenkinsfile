@@ -17,7 +17,7 @@ pipeline {
         
            steps {
               withSonarQubeEnv('Akhil-sonarqube-server') {
-                   sh "${scanner/Home}/bin/sonar-scanner"
+                  sh "${scanner/Home}/bin/sonar-scanner"
               }
            }
         }
