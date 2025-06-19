@@ -3,6 +3,7 @@ pipeline {
     environment {
         PATH = "/opt/maven/bin:$PATH"
     }
+
     stages {
         stage('build') {
             steps {
@@ -18,7 +19,7 @@ pipeline {
               withSonarQubeEnv('Akhil-sonarqube-server') {
                    sh "${scanner/Home}/bin/sonar-scanner"
               }
-          }
+           }
         }
     }
 }
