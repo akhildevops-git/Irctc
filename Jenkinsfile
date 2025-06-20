@@ -5,11 +5,13 @@ pipeline {
     }
 
     stages {
+
         stage("build") {
             steps {
                 sh 'mvn clean deploy'
             }
         }
+
         stage('SonarQube analysis') {
            environment {
                scannerHome = tool 'Akhil-sonarqube-scanner'
