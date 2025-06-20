@@ -3,9 +3,7 @@ pipeline {
     environment {
         PATH = "/opt/maven/bin:$PATH"
     }
-
     stages {
-
         stage("build") {
             steps {
                 sh 'mvn clean deploy'
@@ -14,12 +12,9 @@ pipeline {
         stage('SonarQube analysis') {
             environment {
                 scannerHome = tool 'Akhil-sonarqube-scanner'
-
             }
-
             steps {
-                withSonarQubeEnv('Akhil-sonarqube-server') }
-
+                withSonarQubeEnv('Akhil-sonarqube-server') {
                     sh "${scannerHome}bin/sonar-scanner"
                 }
             }
