@@ -11,18 +11,18 @@ pipeline {
                 sh 'mvn clean deploy'
             }
         }
-
         stage('SonarQube analysis') {
-           environment {
-               scannerHome = tool 'Akhil-sonarqube-scanner'
-           }
-        
-           steps {
-              withSonarQubeEnv('Akhil-sonarqube-server') {
-                  sh "${scanner/Home}/bin/sonar-scanner"
-              }
-           }
-        }
-    }
-}
+            environment {
+                scannerHome = tool 'Akhil-sonarqube-scanner'
 
+            }
+
+            steps {
+                withSonarQubeEnv('Akhil-sonarqube-server') }
+
+                    sh "${scannerHome}bin/sonar-scanner"
+                }
+            }
+        }
+     }
+}
